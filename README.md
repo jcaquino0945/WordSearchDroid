@@ -2,7 +2,9 @@
 
 Shopify Mobile Developer Intern (Android) - Fall 2019 Challenge
 
-![]()
+<p align="center">
+  <img src="https://github.com/joshvocal/WordSearch/blob/master/res/demo.gif">
+</p>
 
 ## Getting Started
 
