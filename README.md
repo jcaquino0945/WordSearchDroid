@@ -2,7 +2,7 @@
 
 Shopify Mobile Developer Intern (Android) - Fall 2019 Challenge
 
-| Requirement                                                                               | Finish             |
+| Requirement                                                                               | Status             |
 | ----------------------------------------------------------------------------------------- | ------------------ |
 | Create a word search mobile app for Android or iOS                                        | :heavy_check_mark: |
 | The word search should have at least a 10x10 grid                                         | :heavy_check_mark: |
