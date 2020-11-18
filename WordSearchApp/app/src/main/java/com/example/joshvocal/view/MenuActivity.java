@@ -11,6 +11,7 @@ import com.example.joshvocal.R;
 public class MenuActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button mPlayGameButton;
+    private Button creditsBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +20,8 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
 
         mPlayGameButton = findViewById(R.id.playGameButton);
         mPlayGameButton.setOnClickListener(this);
+        creditsBtn = findViewById(R.id.creditsButton);
+
     }
 
     @Override
@@ -31,4 +34,10 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
                 break;
         }
     }
+
+    public void credits(View view) {
+        // Do something in response to button click
+        startActivity(new Intent(this, CreditsActivity.class));
+    }
+
 }

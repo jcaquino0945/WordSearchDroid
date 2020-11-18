@@ -3,6 +3,7 @@ package com.example.joshvocal.view;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -33,24 +34,26 @@ public class WordSearchActivity extends AppCompatActivity {
     private WordSearch mWordSearch;
     private String mCurrentWord = "";
     private TextView mCurrentWordTextView;
+    private TextView mTextField;
 
     private static final int NUM_ROWS = 10;
     private static final int NUM_COLS = 10;
     private static final int WORD_LIST_NUM_COLS = 3;
 
     private ArrayList<Word> mWords = new ArrayList<>(Arrays.asList(
-            new Word("swift"),
-            new Word("kotlin"),
-            new Word("objectivec"),
-            new Word("variable"),
-            new Word("java"),
-            new Word("mobile"),
-            new Word("flutter"),
-            new Word("dart")
+            new Word("phone"),
+            new Word("android"),
+            new Word("food"),
+            new Word("storm"),
+            new Word("typhoon"),
+            new Word("teacher"),
+            new Word("machine"),
+            new Word("learning")
     ));
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_word_search);
 
@@ -73,6 +76,17 @@ public class WordSearchActivity extends AppCompatActivity {
         mWordSearchRecyclerView.setLayoutManager(new GridLayoutManager(this, NUM_COLS));
         mWordSearchAdapter = new WordSearchAdapter(this, mWordSearch.getBoardPositionsInOneDimension());
         mWordSearchRecyclerView.setAdapter(mWordSearchAdapter);
+        mTextField = findViewById(R.id.mTextField);
+        new CountDownTimer(300000, 1000) {
+
+            public void onTick(long millisUntilFinished) {
+                mTextField.setText("seconds remaining: " + millisUntilFinished / 1000);
+            }
+
+            public void onFinish() {
+                gameOver();
+            }
+        }.start();
         mWordSearchRecyclerView.addOnItemTouchListener(new OnItemTouchMultiDragListener("touchable", this, mWordSearch) {
 
             @Override
@@ -131,6 +145,27 @@ public class WordSearchActivity extends AppCompatActivity {
 
         dialog.show();
     }
+    private void gameOver() {
+        final Dialog dialog = new Dialog(this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.dialog_fail);
+        dialog.setCanceledOnTouchOutside(false);
+
+        Button playAgain = dialog.findViewById(R.id.playAgainButton);
+
+        playAgain.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.cancel();
+                Intent intent = getIntent();
+                finish();
+                startActivity(intent);
+            }
+        });
+
+        dialog.show();
+    }
+
 
     private void onAfterDrag() {
         boolean isWordFound = false;
