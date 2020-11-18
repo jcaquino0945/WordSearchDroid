@@ -2,10 +2,6 @@
 
 Shopify Mobile Developer Intern (Android) - Fall 2019 Challenge
 
-<p align="center">
-  <img src="https://github.com/joshvocal/WordSearch/blob/master/res/demo.gif">
-</p>
-
 ## Getting Started
 
 ### Installing
@@ -13,7 +9,7 @@ Shopify Mobile Developer Intern (Android) - Fall 2019 Challenge
 Clone the repo onto your desired save path
 
 ```
-git clone https://github.com/joshvocal/WordSearch.git
+git clone https://github.com/jcaquino0945/WordSearchDroid.git
 ```
 
 Open it up on Android Studio
@@ -41,3 +37,7 @@ Open it up on Android Studio
 ## Built With
 
 * [Lottie](https://airbnb.design/lottie/) - Parses Adobe After Effects animations exported as json with Bodymovin and renders them natively on mobile
+
+## Updated by Miguel Aquino And Team
+Added Timer and changed color scheme to black and white
+Added credits for team members and credits to original developer
